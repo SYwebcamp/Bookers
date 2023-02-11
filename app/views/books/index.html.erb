@@ -20,7 +20,7 @@
 
 <h1>New book</h1>
 <% if @book.errors.any? %>
-  <%= @book.errors.count %>件のエラーが発生しました。
+  <%= @book.errors.count %>errors prohibited this book from being saved:
   <ul>
       <% @book.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -29,14 +29,14 @@
 <% end %>
 
 <%= form_with model: @book, url: '/books', method: :post do |f| %>
-    
+
     <p class = "text_title">Title</p>
     <%= f.text_field :title %>
-    
+
     <p class = "text_title">Body</p>
     <%= f.text_area :body %>
-  
-    
+
+
     <div class="submit">
       <%= f.submit 'Create Book' %>
     </div>
